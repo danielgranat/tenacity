@@ -5,7 +5,7 @@ module Tenacity
       def id_class_for(association)
         if association.polymorphic?
           String
-        elsif association.type == :belongs_to
+        elsif association.type == :belongs_to or association.type == :t_belongs_to
           association.source._t_id_type
         else
           association.associate_class._t_id_type
